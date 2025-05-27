@@ -1,0 +1,114 @@
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  background: #fff;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.2);
+    transform: translateY(-6px);
+  }
+
+  mat-card-header {
+    padding-bottom: 0;
+    .mat-card-avatar {
+      background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+      background-size: cover;
+      border-radius: 50%;
+    }
+  }
+
+  mat-card-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #3f51b5;
+  }
+
+  mat-card-subtitle {
+    font-size: 0.9rem;
+    color: #757575;
+  }
+
+  .post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0 0 12px 12px;
+    margin-top: 12px;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  }
+
+  mat-card-content {
+    margin-top: 12px;
+    flex-grow: 1;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  mat-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      min-width: 56px;
+      font-weight: 600;
+      font-size: 16px;
+      text-transform: none;
+      color: #3f51b5;
+      transition: background-color 0.3s ease;
+
+      &.view-post-btn {
+        background-color: #3f51b5;
+        color: white;
+        border-radius: 24px;
+        padding: 6px 14px;
+
+        mat-icon {
+          font-size: 18px;
+        }
+
+        &:hover {
+          background-color: #303f9f;
+        }
+      }
+
+      mat-icon {
+        font-size: 20px;
+      }
+    }
+
+    .action-count {
+      font-size: 0.85rem;
+      color: #666;
+      margin-left: 2px;
+    }
+  }
+}
+
+.no-posts-msg {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #999;
+  margin-top: 48px;
+}

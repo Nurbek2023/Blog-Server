@@ -1,0 +1,37 @@
+<div class="posts-grid" *ngIf="allPosts?.length > 0; else noPosts">
+  <mat-card class="post-card" *ngFor="let item of allPosts">
+    <mat-card-header>
+      <div mat-card-avatar class="post-avatar"></div>
+      <mat-card-title>{{ item.name }}</mat-card-title>
+      <mat-card-subtitle>
+        Posted By: {{ item.postedBy }} | {{ item.date | date:'mediumDate' }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="item.img" [alt]="item.name" class="post-image"/>
+
+    <mat-card-content>
+      {{ truncate(item.content, 300) }}
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-icon-button color="warn" aria-label="Like">
+        <mat-icon>favorite</mat-icon>
+        <span class="action-count">{{ item.likeCount }}</span>
+        </button>
+
+        <button mat-icon-button color="primary" aria-label="Views">
+        <mat-icon>remove_red_eye</mat-icon>
+        <span class="action-count">{{ item.viewCount }}</span>
+        </button>
+
+      <button mat-button color="accent" [routerLink]="['/view-post', item.id]" class="view-post-btn">
+        View Post <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #noPosts>
+  <p class="no-posts-msg">No posts to show.</p>
+</ng-template>

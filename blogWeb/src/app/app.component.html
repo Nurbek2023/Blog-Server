@@ -1,0 +1,50 @@
+<mat-toolbar color="primary" class="app-toolbar">
+  <button
+    mat-icon-button
+    (click)="drawer.toggle()"
+    aria-label="Toggle menu"
+    class="menu-button"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="app-title" routerLink="/">My Blog App</span>
+
+  <nav class="nav-links" *ngIf="!isSmallScreen">
+    <a mat-button routerLink="/create-post" routerLinkActive="active-link">Create New Post</a>
+    <a mat-button routerLink="/view-all" routerLinkActive="active-link">View All Posts</a>
+    <a mat-button routerLink="/search-by-name" routerLinkActive="active-link">Search</a>
+  </nav>
+
+  <span class="spacer"></span>
+
+  <button
+    mat-icon-button
+    aria-label="Favorites"
+    matTooltip="Favorites"
+    class="icon-button"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    aria-label="Share"
+    matTooltip="Share"
+    class="icon-button"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="over" class="sidenav" [fixedInViewport]="true">
+    <nav class="drawer-nav">
+      <a mat-list-item routerLink="/create-post" (click)="drawer.close()" routerLinkActive="active-link">Create New Post</a>
+      <a mat-list-item routerLink="/view-all" (click)="drawer.close()" routerLinkActive="active-link">View All Posts</a>
+      <a mat-list-item routerLink="/search-by-name" (click)="drawer.close()" routerLinkActive="active-link">Search</a>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
