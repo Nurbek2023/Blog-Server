@@ -14,12 +14,9 @@ Whether you're an aspiring writer or a curious reader, this app creates a space 
 
 ### Backend - `blogServer`
 - Java 17
-- Spring Boot (JPA, Web, Security, Validation)
-- PostgreSQL (Production) / H2 (Development)
-- JWT Authentication
-- OAuth2 (Google & GitHub Login)
-- Swagger (API documentation)
-- MapStruct & Lombok
+- Spring Boot (JPA, Web, Validation)
+- MySQL (Production) / H2 (Development)
+- Lombok
 - Maven
 
 ### Frontend - `blogWeb`
