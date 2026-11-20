@@ -28,7 +28,8 @@ public class Post {
 
     private int viewCount;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "post_tags", joinColumns = @JoinColumn(name = "post_id"))
+    @Column(name = "tag")
     private List<String> tags;
-
-
 }
